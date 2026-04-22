@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structure du site vitrine — Centre thérapeutique Genève</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            color: #1d1d1f;
+            line-height: 1.7;
+            background: #fff;
+        }
+        .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+        /* Header */
+        .doc-header {
+            border-bottom: 1px solid #e5e5e5;
+            padding: 48px 0 32px;
+            margin-bottom: 48px;
+        }
+        .doc-header h1 {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+        }
+        .doc-header .meta {
+            font-size: 14px;
+            color: #86868b;
+        }
+
+        /* Sections */
+        section { margin-bottom: 56px; }
+        h2 {
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin: 32px 0 12px;
+        }
+        h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin: 20px 0 8px;
+        }
+        p { margin-bottom: 12px; font-size: 15px; }
+        strong { font-weight: 600; }
+
+        /* Rationale blocks */
+        .rationnel {
+            background: #f5f5f7;
+            border-left: 3px solid #1d1d1f;
+            padding: 20px 24px;
+            margin: 16px 0 24px;
+            border-radius: 0 8px 8px 0;
+        }
+        .rationnel p { font-size: 14px; margin-bottom: 8px; }
+        .rationnel p:last-child { margin-bottom: 0; }
+        .rationnel .label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #86868b;
+            margin-bottom: 8px;
+        }
+
+        /* Question block */
+        .question {
+            background: #fff8e6;
+            border-left: 3px solid #d4a017;
+            padding: 20px 24px;
+            margin: 16px 0 24px;
+            border-radius: 0 8px 8px 0;
+        }
+        .question p { font-size: 14px; margin-bottom: 8px; }
+        .question p:last-child { margin-bottom: 0; }
+        .question .label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #a07800;
+            margin-bottom: 8px;
+        }
+
+        /* Code / tree blocks */
+        pre {
+            background: #f5f5f7;
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-size: 13px;
+            line-height: 1.6;
+            overflow-x: auto;
+            margin: 12px 0 20px;
+            font-family: "SF Mono", "Fira Code", "Fira Mono", Menlo, monospace;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0 24px;
+            font-size: 14px;
+        }
+        th {
+            text-align: left;
+            font-weight: 600;
+            padding: 10px 12px;
+            border-bottom: 2px solid #1d1d1f;
+            font-size: 13px;
+        }
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e5e5e5;
+            vertical-align: top;
+        }
+        tr:last-child td { border-bottom: none; }
+
+        /* Lists */
+        ul, ol { margin: 8px 0 16px 20px; font-size: 15px; }
+        li { margin-bottom: 4px; }
+
+        /* Separator */
+        hr {
+            border: none;
+            border-top: 1px solid #e5e5e5;
+            margin: 48px 0;
+        }
+
+        /* Footer */
+        .doc-footer {
+            border-top: 1px solid #e5e5e5;
+            padding: 24px 0 48px;
+            margin-top: 48px;
+            font-size: 13px;
+            color: #86868b;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .doc-header { padding: 32px 0 24px; }
+            .doc-header h1 { font-size: 24px; }
+            h2 { font-size: 19px; }
+            section { margin-bottom: 40px; }
+            table { font-size: 13px; }
+            th, td { padding: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header class="doc-header">
+        <h1>Structure du site vitrine<br>Centre thérapeutique Genève</h1>
+        <p class="meta">Créé le 25/03/2026 — Mis à jour le 30/03/2026<br>Positionnement : premium, CSP+, Genève · Ouverture sept. 2026</p>
+    </header>
+
+    <!-- PHILOSOPHIE -->
+    <section>
+        <h2>Philosophie &amp; rationnel</h2>
+        <p><strong>Peu de pages visibles, beaucoup de pages indexées.</strong> Le visiteur voit un site épuré (5 entrées de menu + 2 CTA). Google, lui, voit des dizaines de pages optimisées. Résultat : expérience utilisateur premium en surface, machine SEO en profondeur.</p>
+        <p><strong>Pourquoi ?</strong> Un CSP+ qui cherche un centre thérapeutique à Genève ne veut pas parcourir 15 onglets. Il veut comprendre en 30 secondes ce qu'on propose, être rassuré, et réserver. Chaque clic superflu = un abandon potentiel.</p>
+    </section>
+
+    <!-- ARBORESCENCE -->
+    <section>
+        <h2>Arborescence</h2>
+
+        <h3>Navigation visible (5 entrées + 2 CTA)</h3>
+<pre>[HEADER]  Nos soins | L'équipe | Blog | Contact   [CTA: Prendre RDV]
+
+/               Hero fullscreen
+/nos-soins/     Approche + prestations unifiées + formules
+/equipe/        Fondatrices + praticiens
+/blog/          Hub articles SEO
+/contact/       Coordonnées + formulaire + carte
+
+[CTA]  /quiz/           Bilan personnalisé (lead magnet)
+[CTA]  /rendez-vous/    Booking Calendly/OneDock</pre>
+
+        <h3>Pages cachées (hors menu, indexées Google)</h3>
+<pre>/therapies-traditionnelles/              Page pilier SEO
+/therapies-traditionnelles/acupuncture/
+/therapies-traditionnelles/osteopathie/
+/therapies-traditionnelles/naturopathie/
+
+/therapies-innovantes/                   Page pilier SEO
+/therapies-innovantes/cryotherapie/
+/therapies-innovantes/neurofeedback/</pre>
+
+        <h3>Utilitaires (footer uniquement)</h3>
+<pre>/mentions-legales/  ·  /cgv/  ·  /confidentialite/</pre>
+    </section>
+
+    <hr>
+
+    <!-- 1. ACCUEIL -->
+    <section>
+        <h2>1. Accueil</h2>
+        <p><strong>Format :</strong> fullscreen, zéro scroll.</p>
+        <p>Image ou animation plein écran. Header transparent avec navigation. Aucun paragraphe, aucune description. Juste le visuel, le logo, et la nav.</p>
+
+        <div class="rationnel">
+            <p class="label">Rationnel</p>
+            <p>La homepage est une porte d'entrée, pas une brochure. Le positionnement premium se communique par l'image, pas par le texte. Le visiteur doit ressentir l'univers du centre en 2 secondes, puis naviguer.</p>
+            <p>Les centres concurrents surchargent leur homepage d'infos — on fait l'inverse pour marquer la différence et signaler le positionnement haut de gamme. Même logique que les sites de marques luxe (Aesop, Byredo…) : l'image parle, le texte se tait.</p>
+        </div>
+
+        <table>
+            <tr><th>Élément</th><th>Détail</th></tr>
+            <tr><td>Fond</td><td>Image grand format ou animation (ambiance centre)</td></tr>
+            <tr><td>Logo</td><td>Centré ou top-left</td></tr>
+            <tr><td>Navigation</td><td>Header minimaliste + CTA "Prendre RDV"</td></tr>
+            <tr><td>CTA discret</td><td>Bas d'écran : "Faites votre bilan personnalisé" → /quiz/</td></tr>
+        </table>
+        <p><strong>Texte visible : &lt; 20 mots. Zéro paragraphe.</strong></p>
+    </section>
+
+    <!-- 2. NOS SOINS -->
+    <section>
+        <h2>2. Nos soins — page unique</h2>
+        <p>Page centrale du site. Approche → prestations → formules, dans un parcours fluide.</p>
+
+        <div class="rationnel">
+            <p class="label">Rationnel — Pourquoi UNE seule page ?</p>
+            <p>La proposition de valeur du centre est justement la <strong>fusion</strong> des deux mondes. Séparer les soins en deux pages reviendrait à dire "on fait de la médecine classique ET on fait de l'innovant" — comme deux offres juxtaposées. Or, la promesse est que les deux se complètent et créent un résultat unique qu'aucun des deux ne pourrait atteindre seul.</p>
+            <p>Deux pages distinctes créeraient un choix binaire ("je vais voir la page tradition OU la page innovation"), alors que le visiteur devrait être exposé à l'ensemble. Un patient qui pense venir pour de l'ostéo doit découvrir naturellement que le centre propose aussi du neurofeedback — et que les deux combinés donnent de meilleurs résultats.</p>
+        </div>
+
+        <div class="rationnel">
+            <p class="label">Rationnel — Pourquoi un tag discret plutôt qu'une séparation en deux sections ?</p>
+            <p>Découper la page en section "Tradition" puis section "Innovation" recrée la même rupture qu'avoir deux pages. Le tag (petit label, code couleur) permet au lecteur curieux de repérer l'origine de chaque soin, sans imposer une grille de lecture binaire. C'est un indicateur, pas un filtre.</p>
+        </div>
+
+        <div class="question">
+            <p class="label">Question ouverte — Faut-il afficher les tarifs sur cette page ?</p>
+            <p><strong>Arguments pour :</strong> transparence, le CSP+ veut savoir vite, évite un aller-retour.</p>
+            <p><strong>Arguments contre :</strong> les prix bruts sans contexte peuvent faire fuir, et le programme personnalisé n'a pas de prix fixe.</p>
+            <p><strong>Piste de compromis :</strong> afficher les fourchettes ("à partir de…") pour l'à la carte et l'abonnement, mais renvoyer vers le quiz pour le programme personnalisé. À valider.</p>
+        </div>
+
+        <table>
+            <tr><th>Section</th><th>Contenu</th></tr>
+            <tr><td>Hero</td><td>Titre + sous-titre 1 ligne</td></tr>
+            <tr><td>Notre approche</td><td>2-3 paragraphes : pourquoi la fusion tradition + innovation</td></tr>
+            <tr><td>Prestations</td><td>Grille unifiée. Par soin : image, nom, 1-2 lignes, lien "En savoir plus". Tag discret (tradition/innovation)</td></tr>
+            <tr><td>Transition</td><td>"Comment en bénéficier"</td></tr>
+            <tr><td>À la carte</td><td>Fourchette tarifaire + CTA</td></tr>
+            <tr><td>Abonnement</td><td>Inclus, tarif, avantages + CTA</td></tr>
+            <tr><td>Programme personnalisé</td><td>Bilan → diagnostic → sur mesure + CTA → /quiz/</td></tr>
+            <tr><td>CTA final</td><td>"Prendre RDV" + "Faire mon bilan"</td></tr>
+        </table>
+        <p><strong>Longueur : 1 000-1 500 mots.</strong></p>
+    </section>
+
+    <!-- 3. PAGES PRESTATIONS -->
+    <section>
+        <h2>3. Pages prestations (× 5-10, cachées)</h2>
+        <p>Détail par soin. Accessibles en 2 clics (Nos soins → "En savoir plus"). Absentes du menu.</p>
+
+        <div class="rationnel">
+            <p class="label">Rationnel</p>
+            <p>Ces pages existent pour le SEO et pour le visiteur qui veut approfondir. Elles captent le trafic Google ("acupuncture Genève", "cryothérapie bienfaits"…) et redirigent vers la prise de RDV. Les cacher du menu garde la navigation propre.</p>
+        </div>
+
+        <table>
+            <tr><th>Section</th><th>Contenu</th></tr>
+            <tr><td>Hero</td><td>Nom + image + tag discret (tradition/innovation)</td></tr>
+            <tr><td>Description</td><td>Ce que c'est, comment ça marche</td></tr>
+            <tr><td>Bienfaits</td><td>5-8 points</td></tr>
+            <tr><td>Séance type</td><td>Durée, étapes</td></tr>
+            <tr><td>Problématiques</td><td>Liste avec liens → blog (maillage SEO)</td></tr>
+            <tr><td>Tarif</td><td>Prix + renvoi formules</td></tr>
+            <tr><td>FAQ</td><td>3-5 questions (Schema FAQ)</td></tr>
+            <tr><td>CTA</td><td>Réserver + bilan</td></tr>
+        </table>
+        <p><strong>Longueur : 500 mots max.</strong></p>
+    </section>
+
+    <!-- 4. L'ÉQUIPE -->
+    <section>
+        <h2>4. L'équipe</h2>
+        <table>
+            <tr><th>Section</th><th>Contenu</th></tr>
+            <tr><td>Intro</td><td>2-3 lignes, vision commune</td></tr>
+            <tr><td>Fondatrices</td><td>2 blocs : photo, parcours, spécialités</td></tr>
+            <tr><td>Praticiens</td><td>Grille cartes : photo, nom, spécialité</td></tr>
+        </table>
+        <p><strong>500-800 mots. Photos pro obligatoires.</strong></p>
+    </section>
+
+    <!-- 5. BLOG -->
+    <section>
+        <h2>5. Blog</h2>
+        <p>Page index : grille (vignette + titre + catégorie), filtres.</p>
+
+        <div class="rationnel">
+            <p class="label">Rationnel</p>
+            <p>Le blog est le moteur SEO du site. Chaque article cible un mot-clé longue traîne, renvoie vers les pages prestations cachées, et alimente la boucle SEO. C'est aussi le support E-E-A-T (articles signés par les praticiens).</p>
+        </div>
+
+        <h4>Structure article</h4>
+        <p>Titre H1 SEO → intro 100 mots → corps H2/H3 → liens internes (prestations + quiz) → CTA contextuel → auteur praticien.</p>
+
+        <h4>Types d'articles</h4>
+        <ul>
+            <li><strong>Pathologies</strong> : "Soulager [problème] grâce à [prestation] à Genève"</li>
+            <li><strong>Éducatifs</strong> : "Qu'est-ce que [prestation] ? Guide complet"</li>
+            <li><strong>SEO local</strong> : "Meilleur centre [prestation] Genève"</li>
+            <li><strong>Actualités</strong> : événements, ouverture, nouveautés</li>
+        </ul>
+        <p><strong>Longueur : 1 500 mots max (SEO), 800 mots (actus).</strong></p>
+    </section>
+
+    <!-- 6. CONTACT -->
+    <section>
+        <h2>6. Contact</h2>
+        <p>Formulaire (nom, email, tél, objet, message) + coordonnées + Google Maps + horaires + réseaux. 200-400 mots.</p>
+    </section>
+
+    <!-- 7. QUIZ -->
+    <section>
+        <h2>7. Quiz — Bilan personnalisé (lead magnet)</h2>
+
+        <div class="rationnel">
+            <p class="label">Rationnel</p>
+            <p>Le quiz remplit deux fonctions. Pour le visiteur : il oriente vers le bon parcours thérapeutique. Pour le centre : il capture des leads qualifiés (email + téléphone + problématique). C'est le pont entre le visiteur passif et le premier contact.</p>
+        </div>
+
+        <p>5-8 questions (problématiques, objectifs, préférences) → capture (prénom, email, tél) → "Bilan sous 48h". Design plein écran, 1 question/écran, barre de progression.</p>
+    </section>
+
+    <!-- 8. RDV -->
+    <section>
+        <h2>8. Prendre RDV</h2>
+        <p>Widget Calendly/OneDock + contact tél/email + infos 1ère visite.</p>
+    </section>
+
+    <hr>
+
+    <!-- TRANSVERSAL -->
+    <section>
+        <h2>Éléments transversaux</h2>
+
+        <h3>Header</h3>
+<pre>Logo | Nos soins | L'équipe | Blog | Contact | [Prendre RDV]</pre>
+        <p>Sticky, transparent sur homepage.</p>
+
+        <h3>Footer</h3>
+        <p>Logo, nav, coordonnées, horaires, réseaux, CTA bilan, liens légaux.</p>
+
+        <h3>Mobile</h3>
+        <ul>
+            <li>Burger menu</li>
+            <li>CTA flottant bas : "Prendre RDV" + "Appeler"</li>
+            <li>Quiz en swipe</li>
+        </ul>
+    </section>
+
+    <!-- SEO -->
+    <section>
+        <h2>SEO</h2>
+        <ul>
+            <li><strong>Schema.org</strong> : LocalBusiness, MedicalOrganization, FAQPage, Article</li>
+            <li><strong>URLs propres</strong>, meta uniques, maillage interne en boucle fermée (blog → prestations → soins → quiz)</li>
+            <li><strong>Technique</strong> : WebP/AVIF, lazy load, Core Web Vitals</li>
+            <li><strong>Google Business Profile</strong> cohérent</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <!-- RÉCAP -->
+    <section>
+        <h2>Récapitulatif</h2>
+        <table>
+            <tr><th>Page</th><th>Nav</th><th>Longueur</th><th>Rôle</th></tr>
+            <tr><td>Accueil</td><td>Oui</td><td>&lt; 20 mots</td><td>Immersion</td></tr>
+            <tr><td>Nos soins</td><td>Oui</td><td>1 000-1 500</td><td>Offre unifiée</td></tr>
+            <tr><td>L'équipe</td><td>Oui</td><td>500-800</td><td>Crédibilité</td></tr>
+            <tr><td>Blog</td><td>Oui</td><td>—</td><td>SEO</td></tr>
+            <tr><td>Contact</td><td>Oui</td><td>200-400</td><td>Accès</td></tr>
+            <tr><td>Quiz</td><td>CTA</td><td>Interactif</td><td>Lead gen</td></tr>
+            <tr><td>RDV</td><td>CTA</td><td>Widget</td><td>Conversion</td></tr>
+            <tr><td>Prestations</td><td>Non</td><td>500 × 5-10</td><td>SEO</td></tr>
+            <tr><td>Piliers</td><td>Non</td><td>2 000-3 000 × 2</td><td>SEO</td></tr>
+            <tr><td>Légales</td><td>Footer</td><td>Variable</td><td>Obligation</td></tr>
+        </table>
+        <p><strong>5 pages + 2 CTA visibles. C'est tout.</strong></p>
+    </section>
+
+    <footer class="doc-footer">
+        <p>Document de travail — New Lake Sports × SAMMA · Mars 2026</p>
+    </footer>
+
+</div>
+
+</body>
+</html>

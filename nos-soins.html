@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos soins | Médecine chinoise et intégrative à Genève — Samma</title>
+    <meta name="description" content="Découvrez les soins de médecine chinoise et intégrative à Genève chez Samma : acupuncture, méditation Insight, biohacking. Un accompagnement sur mesure, entre tradition et science.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        html {
+            scroll-snap-type: y proximity;
+        }
+        /* Filtres */
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 0;
+        }
+        .filter-btn {
+            padding: 5px 14px;
+            border: 1px solid #ccc;
+            background: #fff;
+            color: #333;
+            cursor: pointer;
+            font-size: 13px;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover {
+            border-color: #333;
+        }
+        .filter-btn.active {
+            background: #333;
+            color: #fff;
+            border-color: #333;
+        }
+        /* Texte empathique sous les filtres */
+        .filter-description {
+            min-height: 60px;
+            padding: 16px 0;
+            display: flex;
+            align-items: center;
+        }
+        .filter-description p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #723D2E;
+            font-style: italic;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            margin: 0;
+        }
+        .filter-description p.visible {
+            opacity: 1;
+        }
+        /* Card grisée */
+        .card.greyed {
+            opacity: 0.25;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+        .card {
+            transition: opacity 0.3s;
+        }
+        /* Vignettes compactes — 4 colonnes */
+        .prestations-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
+        .prestations-grid .card {
+            padding: 14px;
+        }
+        .prestations-grid .img-placeholder {
+            height: 90px;
+            margin-bottom: 8px;
+        }
+        .prestations-grid .tag {
+            margin-bottom: 4px;
+            font-size: 11px;
+        }
+        .prestations-grid .tag-tradition {
+            background: #f0ebe3;
+            border-color: #d4c5b0;
+            color: #7a6a55;
+        }
+        .prestations-grid .tag-biohacking {
+            background: #e3eef5;
+            border-color: #a8c8de;
+            color: #4a7a96;
+        }
+        .prestations-grid h3 {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        .prestations-grid p {
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+        .prestations-grid a {
+            font-size: 13px;
+        }
+        /* Scroll snap sur la section prestations */
+        .section-prestations {
+            min-height: calc(100vh - 60px);
+            scroll-snap-align: start;
+            scroll-margin-top: 60px;
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">SAMMA</a>
+        <div class="header-right">
+    <nav>
+            <a href="philosophie.html">Notre philosophie</a>
+            <a href="nos-soins.html" class="active">Nos soins</a>
+            <a href="equipe.html">L'équipe</a>
+        </nav>
+        <a href="rendez-vous.html" class="btn-cta">Prendre RDV</a>
+    </div>
+    </header>
+
+    <section class="hero">
+        <h1>Nos soins</h1>
+        <p>Chaque parcours est unique. Chaque soin, composé pour vous.</p>
+    </section>
+
+    <section class="section-prestations">
+        <h2>Nos prestations</h2>
+
+        <!-- Filtres par problématique -->
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">Toutes</button>
+            <button class="filter-btn" data-filter="burnout">Burn-out & fatigue</button>
+            <button class="filter-btn" data-filter="stress">Stress & anxiété</button>
+            <button class="filter-btn" data-filter="douleurs">Douleurs chroniques</button>
+            <button class="filter-btn" data-filter="sommeil">Troubles du sommeil</button>
+            <button class="filter-btn" data-filter="infertilite">Infertilité</button>
+            <button class="filter-btn" data-filter="sport">Performance sportive</button>
+            <button class="filter-btn" data-filter="digestif">Troubles digestifs</button>
+            <button class="filter-btn" data-filter="longevite">Récupération & longévité</button>
+        </div>
+
+        <!-- Texte empathique — apparaît en fondu selon le filtre -->
+        <div class="filter-description">
+            <p id="filter-text"></p>
+        </div>
+
+        <div class="prestations-grid">
+            <!-- Pilier Tradition — MTC -->
+            <div class="card" data-problematiques="burnout sommeil douleurs stress infertilite digestif">
+                <div class="img-placeholder">[Image]</div>
+                <span class="tag tag-tradition">Tradition</span>
+                <h3>Médecine traditionnelle chinoise</h3>
+                <p>Acupuncture, diagnostic énergétique et rééquilibrage des méridiens selon la lignée traditionnelle.</p>
+                <a href="acupuncture.html">En savoir plus →</a>
+            </div>
+            <div class="card" data-problematiques="burnout sommeil stress infertilite douleurs digestif">
+                <div class="img-placeholder">[Image]</div>
+                <span class="tag tag-tradition">Tradition</span>
+                <h3>Phytothérapie chinoise</h3>
+                <p>Formules de plantes médicinales personnalisées selon le diagnostic MTC.</p>
+                <a href="phytotherapie.html">En savoir plus →</a>
+            </div>
+            <div class="card" data-problematiques="douleurs stress sport burnout longevite">
+                <div class="img-placeholder">[Image]</div>
+                <span class="tag tag-tradition">Tradition</span>
+                <h3>Fasciathérapie</h3>
+                <p>Approche manuelle douce qui libère les tensions profondes inscrites dans les fascias.</p>
+                <a href="fasciatherapie.html">En savoir plus →</a>
+            </div>
+            <div class="card" data-problematiques="burnout sommeil stress longevite">
+                <div class="img-placeholder">[Image]</div>
+                <span class="tag tag-tradition">Tradition</span>
+                <h3>Djana Meditation</h3>
+                <p>Pratique méditative ancestrale pour cultiver la présence, la clarté et la paix intérieure.</p>
+                <a href="djana-meditation.html">En savoir plus →</a>
+            </div>
+            <div class="card" data-problematiques="burnout stress sommeil longevite">
+                <div class="img-placeholder">[Image]</div>
+                <span class="tag tag-tradition">Tradition</span>
+                <h3>Breathwork</h3>
+                <p>Techniques de respiration consciente pour réguler le système nerveux et libérer les tensions.</p>
+                <a href="breathwork.html">En savoir plus →</a>
+            </div>
+            <div class="card" data-problematiques="burnout sommeil stress longevite">
+                <div class="img-placeholder">[Image]</div>
+                <span class="tag tag-tradition">Tradition</span>
+                <h3>Yoga Nidra</h3>
+                <p>Sommeil yogique guidé pour une régénération profonde du corps et de l'esprit.</p>
+                <a href="yoga-nidra.html">En savoir plus →</a>
+            </div>
+            <div class="card" data-problematiques="burnout stress longevite">
+                <div class="img-placeholder">[Image]</div>
+                <span class="tag tag-tradition">Tradition</span>
+                <h3>Dharma Talks</h3>
+                <p>Enseignements et cercles de parole pour nourrir la compréhension de soi et du vivant.</p>
+                <a href="dharma-talks.html">En savoir plus →</a>
+            </div>
+            <!-- Pilier Moderne — Biohacking -->
+            <div class="card" data-problematiques="burnout douleurs stress digestif infertilite longevite">
+                <div class="img-placeholder">[Image]</div>
+                <span class="tag tag-biohacking">Biohacking</span>
+                <h3>Médecine fonctionnelle</h3>
+                <p>Approche systémique qui identifie et traite les causes profondes des déséquilibres de santé.</p>
+                <a href="medecine-fonctionnelle.html">En savoir plus →</a>
+            </div>
+            <div class="card" data-problematiques="burnout sport douleurs stress infertilite longevite">
+                <div class="img-placeholder">[Image]</div>
+                <span class="tag tag-biohacking">Biohacking</span>
+                <h3>HBOT</h3>
+                <p>Oxygénothérapie hyperbare pour accélérer la récupération et la régénération cellulaire.</p>
+                <a href="hbot.html">En savoir plus →</a>
+            </div>
+            <div class="card" data-problematiques="douleurs sport sommeil stress burnout longevite">
+                <div class="img-placeholder">[Image]</div>
+                <span class="tag tag-biohacking">Biohacking</span>
+                <h3>Photobiomodulation</h3>
+                <p>Luminothérapie ciblée pour optimiser l'énergie cellulaire et réduire les douleurs.</p>
+                <a href="photobiomodulation.html">En savoir plus →</a>
+            </div>
+            <div class="card" data-problematiques="douleurs sport burnout stress longevite">
+                <div class="img-placeholder">[Image]</div>
+                <span class="tag tag-biohacking">Biohacking</span>
+                <h3>PEMF</h3>
+                <p>Champs électromagnétiques pulsés pour réduire l'inflammation et stimuler la réparation tissulaire.</p>
+                <a href="pemf.html">En savoir plus →</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Nos formules</h2>
+        <div class="grid-3">
+            <div class="card" style="display:flex;flex-direction:column;">
+                <h3>À la carte</h3>
+                <p>Une séance individuelle au moment où vous en avez besoin. Idéal pour découvrir notre approche ou cibler un objectif ponctuel.</p>
+                <div style="margin-top:auto;"><a href="rendez-vous.html" class="btn-cta">Réserver</a></div>
+            </div>
+            <div class="card" style="display:flex;flex-direction:column;">
+                <h3>Programme personnalisé</h3>
+                <p>Un protocole complet construit après bilan intégratif. Plusieurs disciplines combinées, un praticien référent, des jalons clairs sur trois à six mois.</p>
+                <div style="margin-top:auto;"><a href="quiz.html" class="btn-cta">Faire mon bilan</a></div>
+            </div>
+            <div class="card" style="display:flex;flex-direction:column;">
+                <h3>Abonnement</h3>
+                <p>Un accès régulier à l'ensemble de nos soins pour ancrer le changement dans la durée. Priorité de réservation, suivi personnalisé et tarif préférentiel — le cadre idéal pour ceux qui veulent faire de leur bien-être une habitude.</p>
+                <div style="margin-top:auto;"><a href="abonnement.html" class="btn-cta">Découvrir</a></div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="hero">
+        <a href="rendez-vous.html" class="btn-cta">Prendre RDV</a>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <strong>SAMMA</strong>
+                <p>Un souffle, un lieu, une attention.</p>
+            </div>
+            <div>
+                <h4>Navigation</h4>
+                <a href="philosophie.html">Notre philosophie</a><br>
+                <a href="nos-soins.html">Nos soins</a><br>
+                <a href="equipe.html">L'équipe</a><br>
+                <a href="blog.html">Blog</a>
+            </div>
+            <div>
+                <h4>Coordonnées</h4>
+                <p>12 Rue du Rhône, 1204 Genève</p>
+                <p>+41 22 XXX XX XX</p>
+                <p>contact@centre.ch</p>
+            </div>
+            <div>
+                <h4>Horaires</h4>
+                <p>Lun-Ven 8h-20h</p>
+                <p>Sam 9h-17h</p>
+            </div>
+        </div>
+        <div>
+            <a href="mentions-legales.html">Mentions légales</a> |
+            <a href="cgv.html">CGV</a> |
+            <a href="confidentialite.html">Confidentialité</a>
+        </div>
+    </footer>
+
+<script>
+const filterTexts = {
+    burnout: "L'épuisement qui s'installe, le corps qui ne répond plus, l'impression de fonctionner à vide. Ce brouillard permanent, cette lassitude qui précède chaque journée — comme si l'énergie s'était retirée sans prévenir.",
+    stress: "Cette tension permanente qui ne vous quitte plus, même au repos. Le souffle court, le sommeil agité, l'esprit qui ne décroche jamais. Une vigilance épuisante, devenue si familière qu'on finit par oublier ce que le calme signifiait.",
+    douleurs: "Des douleurs qui durent, que la médecine classique peine à soulager. Fibromyalgie, arthrose, tensions chroniques — quand le corps envoie des signaux que personne ne semble entendre.",
+    sommeil: "Les nuits sans repos, les réveils à 3h du matin, la fatigue qui s'accumule. Ce rendez-vous manqué avec le sommeil, soir après soir, et le poids que cela laisse sur chaque journée.",
+    infertilite: "Un parcours souvent solitaire, fait d'attentes et d'incertitudes. Le poids du temps qui passe, les espoirs fragiles, le corps que l'on voudrait comprendre — et cette patience immense qu'il faut trouver, encore.",
+    sport: "Ce désir de se dépasser, d'aller chercher plus loin. Et cette conscience que la récupération compte autant que l'effort — que le corps a besoin d'être écouté pour continuer à répondre présent.",
+    digestif: "Ballonnements, intolérances, inconfort quotidien. Les troubles digestifs affectent bien plus que le ventre — ils pèsent sur l'énergie, l'humeur, la qualité de vie entière.",
+    longevite: "La récupération qui ralentit, les blessures qui mettent plus longtemps à guérir, l'essoufflement qui arrive plus vite qu'avant. Ce sentiment diffus que le corps ne répond plus tout à fait comme on l'a connu — et le désir profond de retrouver cette fluidité."
+};
+
+const filterTextEl = document.getElementById('filter-text');
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+        const cards = document.querySelectorAll('.card[data-problematiques]');
+
+        // Filtrage des cards
+        cards.forEach(card => {
+            if (filter === 'all') {
+                card.classList.remove('greyed');
+            } else {
+                const probs = card.dataset.problematiques.split(' ');
+                if (probs.includes(filter)) {
+                    card.classList.remove('greyed');
+                } else {
+                    card.classList.add('greyed');
+                }
+            }
+        });
+
+        // Texte empathique en fondu
+        filterTextEl.classList.remove('visible');
+        setTimeout(() => {
+            if (filter === 'all') {
+                filterTextEl.textContent = '';
+            } else {
+                filterTextEl.textContent = filterTexts[filter] || '';
+                filterTextEl.classList.add('visible');
+            }
+        }, 200);
+        // Mise à jour des liens "En savoir plus" avec le filtre actif
+        const links = document.querySelectorAll('.prestations-grid a');
+        links.forEach(link => {
+            const baseHref = link.getAttribute('href').split('?')[0];
+            if (filter !== 'all') {
+                link.setAttribute('href', baseHref + '?p=' + filter);
+            } else {
+                link.setAttribute('href', baseHref);
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>

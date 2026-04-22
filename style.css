@@ -1,0 +1,345 @@
+/* === WIREFRAME CSS — Layout only === */
+
+/* Reset */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding: 16px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    z-index: 100;
+}
+
+/* Compenser la hauteur du header fixe */
+body {
+    padding-top: 60px;
+}
+
+/* Active nav link */
+nav a.active {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 2px;
+}
+
+/* Header home — transparent, superposé à la photo */
+.header--home {
+    position: absolute;
+    background: transparent;
+    border-bottom: none;
+}
+
+.header--home ~ .hero--fullscreen {
+    margin-top: -60px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Nav */
+nav {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* CTA Button */
+.btn-cta {
+    border: 2px solid #333;
+    padding: 8px 16px;
+    background: none;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* CTA spacing inside cards and sections (not header) */
+.card .btn-cta,
+section > .btn-cta {
+    margin-top: 16px;
+}
+
+/* Headings spacing */
+h2 {
+    margin-bottom: 20px;
+}
+
+h3 {
+    margin-bottom: 8px;
+}
+
+/* Paragraphs in cards */
+.card p {
+    margin-bottom: 8px;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    padding: 16px 0;
+    font-size: 14px;
+    color: #999;
+    display: flex;
+    gap: 0;
+    border-bottom: none;
+}
+
+.breadcrumb a {
+    color: #999;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    color: #333;
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    color: #333;
+}
+
+/* Sections */
+section {
+    padding: 40px 0;
+    border-bottom: 1px dashed #ddd;
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero--fullscreen {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #f0f0f0;
+    gap: 20px;
+}
+
+/* Homepage hero — fond blanc, texte en bas à gauche */
+.hero--home {
+    background: #fff;
+    color: #333;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 0 40px 60px 40px;
+    border-bottom: none;
+}
+
+.hero--home-content {
+    text-align: left;
+}
+
+.hero--home-content h1 {
+    margin-bottom: 16px;
+    color: #333;
+}
+
+.hero--home-content .btn-cta {
+    color: #333;
+    border-color: #333;
+}
+
+/* Grids */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* Card */
+.card {
+    border: 1px solid #ddd;
+    padding: 20px;
+}
+
+/* Image placeholder */
+.img-placeholder {
+    background: #ddd;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    margin-bottom: 16px;
+}
+
+/* Tag */
+.tag {
+    display: inline-block;
+    font-size: 12px;
+    padding: 2px 8px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.tag-tradition {
+    background: #f0ebe3;
+    border-color: #d4c5b0;
+    color: #7a6a55;
+}
+
+.tag-biohacking {
+    background: #e3eef5;
+    border-color: #a8c8de;
+    color: #4a7a96;
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid #ccc;
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+footer > div {
+    margin-bottom: 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Forms */
+input, textarea, select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 12px;
+}
+
+/* FAQ */
+.faq-item {
+    border-bottom: 1px solid #eee;
+    padding: 16px 0;
+}
+
+/* Progress bar */
+.progress-bar {
+    height: 4px;
+    background: #ddd;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: #333;
+}
+
+/* Quiz */
+.quiz-step {
+    text-align: center;
+    padding: 40px;
+}
+
+.quiz-option {
+    border: 2px solid #ddd;
+    padding: 20px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 10px;
+}
+
+/* Floating bar (mobile CTA) */
+.floating-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-top: 1px solid #ccc;
+    padding: 12px 20px;
+    display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .grid-2,
+    .grid-3,
+    .grid-4,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mobile-hide {
+        display: none;
+    }
+
+    .floating-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz — Bilan personnalisé — SAMMA</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { padding-top: 0; max-width: 600px; }
+        .quiz-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #ccc; }
+        .quiz-header a { text-decoration: none; color: #333; }
+        .quiz-step { display: none; text-align: center; padding: 60px 20px; border-bottom: none; }
+        .quiz-step.active { display: block; }
+        .quiz-option { display: block; width: 100%; text-align: left; padding: 16px 20px; border: 1px solid #ddd; margin-bottom: 8px; cursor: pointer; background: none; font-size: 16px; }
+        .quiz-option:hover { border-color: #333; }
+        .quiz-step h2 { text-align: left; }
+        .quiz-step form { text-align: left; }
+        .quiz-step form input { margin-bottom: 16px; }
+        .quiz-confirm { text-align: center; }
+        .quiz-confirm a { display: block; margin-bottom: 12px; text-decoration: none; color: #333; }
+        .progress-bar { margin-bottom: 0; }
+    </style>
+</head>
+<body>
+
+<div class="quiz-header">
+    <a href="index.html" class="logo">SAMMA</a>
+    <a href="javascript:void(0)" onclick="closeQuiz()">&#10005; Fermer</a>
+</div>
+
+<div class="progress-bar"><div class="progress-bar-fill" id="progress" style="width:0%"></div></div>
+
+<!-- Step 1: Intro -->
+<section class="quiz-step active" data-step="1">
+    <h1>Quel chemin pour vous ?</h1>
+    <p>Cinq questions pour comprendre vos besoins. Nous vous envoyons un bilan personnalisé sous 48 heures.</p>
+    <button class="btn-cta" onclick="nextStep()">Commencer &rarr;</button>
+</section>
+
+<!-- Step 2 -->
+<section class="quiz-step" data-step="2">
+    <h2>Quelle est votre principale préoccupation ?</h2>
+    <div>
+        <div class="quiz-option" onclick="nextStep()">Douleurs physiques</div>
+        <div class="quiz-option" onclick="nextStep()">Stress &amp; anxiété</div>
+        <div class="quiz-option" onclick="nextStep()">Troubles du sommeil</div>
+        <div class="quiz-option" onclick="nextStep()">Performance sportive</div>
+        <div class="quiz-option" onclick="nextStep()">Bien-être général</div>
+    </div>
+</section>
+
+<!-- Step 3 -->
+<section class="quiz-step" data-step="3">
+    <h2>Depuis combien de temps ?</h2>
+    <div>
+        <div class="quiz-option" onclick="nextStep()">Moins d'un mois</div>
+        <div class="quiz-option" onclick="nextStep()">1-6 mois</div>
+        <div class="quiz-option" onclick="nextStep()">6 mois - 1 an</div>
+        <div class="quiz-option" onclick="nextStep()">Plus d'un an</div>
+    </div>
+</section>
+
+<!-- Step 4 -->
+<section class="quiz-step" data-step="4">
+    <h2>Avez-vous déjà consulté ?</h2>
+    <div>
+        <div class="quiz-option" onclick="nextStep()">Jamais</div>
+        <div class="quiz-option" onclick="nextStep()">Médecin généraliste</div>
+        <div class="quiz-option" onclick="nextStep()">Spécialiste</div>
+        <div class="quiz-option" onclick="nextStep()">Thérapeute alternatif</div>
+    </div>
+</section>
+
+<!-- Step 5 -->
+<section class="quiz-step" data-step="5">
+    <h2>Quelle approche vous attire ?</h2>
+    <div>
+        <div class="quiz-option" onclick="nextStep()">Thérapies traditionnelles</div>
+        <div class="quiz-option" onclick="nextStep()">Thérapies innovantes</div>
+        <div class="quiz-option" onclick="nextStep()">Un mix des deux</div>
+        <div class="quiz-option" onclick="nextStep()">Je ne sais pas</div>
+    </div>
+</section>
+
+<!-- Step 6 -->
+<section class="quiz-step" data-step="6">
+    <h2>Quel format préférez-vous ?</h2>
+    <div>
+        <div class="quiz-option" onclick="nextStep()">Séance ponctuelle</div>
+        <div class="quiz-option" onclick="nextStep()">Abonnement mensuel</div>
+        <div class="quiz-option" onclick="nextStep()">Programme sur mesure</div>
+    </div>
+</section>
+
+<!-- Step 7: Capture email -->
+<section class="quiz-step" data-step="7">
+    <h2>Recevez votre bilan personnalisé</h2>
+    <form onsubmit="event.preventDefault(); nextStep();">
+        <input type="text" placeholder="Prénom" required>
+        <input type="email" placeholder="Email" required>
+        <input type="tel" placeholder="Téléphone">
+        <button type="submit" class="btn-cta">Recevoir mon bilan &rarr;</button>
+    </form>
+</section>
+
+<!-- Step 8: Confirmation -->
+<section class="quiz-step quiz-confirm" data-step="8">
+    <h1>Merci.</h1>
+    <p style="margin-bottom:24px">Nous préparons votre bilan personnalisé avec soin. Vous le recevrez par email sous 48 heures.</p>
+    <a href="rendez-vous.html" class="btn-cta">Prendre RDV</a>
+    <a href="blog.html">Découvrir nos articles &rarr;</a>
+</section>
+
+<script>
+let current = 1;
+const total = 8;
+
+function nextStep() {
+    const currentEl = document.querySelector('.quiz-step[data-step="' + current + '"]');
+    currentEl.classList.remove('active');
+    current++;
+    const nextEl = document.querySelector('.quiz-step[data-step="' + current + '"]');
+    nextEl.classList.add('active');
+    document.getElementById('progress').style.width = Math.round((current / total) * 100) + '%';
+}
+
+function closeQuiz() {
+    if (document.referrer && document.referrer.includes('samma-maquette')) {
+        history.back();
+    } else {
+        window.location.href = 'index.html';
+    }
+}
+</script>
+
+</body>
+</html>

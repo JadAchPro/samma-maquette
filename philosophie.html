@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre philosophie — Samma</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* === PHILOSOPHIE V2 — Scroll storytelling === */
+
+        /* Chapitres plein écran */
+        .chapter {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 40px;
+            scroll-snap-align: start;
+            scroll-margin-top: 60px;
+            border-bottom: none;
+        }
+
+        .chapter-inner {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        /* Intro chapitre — grande phrase */
+        .chapter-headline {
+            font-size: 36px;
+            line-height: 1.3;
+            margin-bottom: 24px;
+            color: #333;
+            font-weight: 300;
+        }
+
+        .chapter-text {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 16px;
+        }
+
+        /* Convergence — deux colonnes qui se rejoignent */
+        .convergence {
+            display: grid;
+            grid-template-columns: 1fr 60px 1fr;
+            gap: 0;
+            align-items: start;
+        }
+
+        .convergence-pillar {
+            padding: 30px;
+        }
+
+        .convergence-pillar h3 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            color: #999;
+        }
+
+        .convergence-pillar p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .convergence-bridge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            position: relative;
+        }
+
+        .convergence-bridge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, #D2A887, transparent);
+        }
+
+        .convergence-center {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            border-top: 1px solid #D2A887;
+        }
+
+        .convergence-center p {
+            font-size: 18px;
+            color: #723D2E;
+            font-style: italic;
+        }
+
+        /* Fondatrices — photo commune au centre, textes de part et d'autre */
+        .founders-layout {
+            display: grid;
+            grid-template-columns: 1fr 320px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .founders-portrait {
+            background: #f0ebe3;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+
+        .founder-side {
+            padding-top: 20px;
+        }
+
+        .founder-side-left {
+            text-align: right;
+        }
+
+        .founder-name {
+            font-size: 24px;
+            margin-bottom: 4px;
+            font-weight: 400;
+        }
+
+        .founder-role {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #999;
+            margin-bottom: 20px;
+        }
+
+        .founder-story {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .founder-story p {
+            margin-bottom: 12px;
+        }
+
+        /* L'espace — galerie mosaïque avec légendes poétiques */
+        .space-gallery {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: 250px 250px;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .space-gallery .space-img {
+            background: #f0ebe3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .space-gallery .space-img:first-child {
+            grid-row: 1 / 3;
+        }
+
+        .space-caption {
+            font-size: 15px;
+            font-style: italic;
+            color: #723D2E;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .space-detail {
+            font-size: 14px;
+            color: #999;
+            line-height: 1.6;
+        }
+
+        .space-text {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            margin-top: 24px;
+        }
+
+        /* Nuage de mots contemplatif */
+        .word-cloud {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .word-cloud span {
+            position: absolute;
+            font-weight: 300;
+            color: #D2A887;
+            opacity: 0;
+            animation: wordFade 8s infinite;
+        }
+
+        @keyframes wordFade {
+            0%   { opacity: 0; transform: translateY(8px); }
+            15%  { opacity: 1; transform: translateY(0); }
+            45%  { opacity: 1; transform: translateY(0); }
+            60%  { opacity: 0; transform: translateY(-8px); }
+            100% { opacity: 0; }
+        }
+
+        /* CTA final — sobre */
+        .chapter-cta {
+            text-align: center;
+            padding: 80px 40px;
+            min-height: auto;
+        }
+
+        /* Scroll snap global */
+        html {
+            scroll-snap-type: y proximity;
+        }
+
+        /* Override section borders */
+        .chapter {
+            border-bottom: none !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .chapter { padding: 60px 20px; }
+            .chapter-headline { font-size: 26px; }
+            .convergence { grid-template-columns: 1fr; }
+            .convergence-bridge { display: none; }
+            .founders-layout { grid-template-columns: 1fr; }
+            .founder-side-left { text-align: left; }
+            .founders-portrait { height: 280px; }
+            .space-gallery { grid-template-columns: 1fr; grid-template-rows: auto; }
+            .space-gallery .space-img { height: 200px; }
+            .space-gallery .space-img:first-child { grid-row: auto; }
+            .space-text { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">SAMMA</a>
+    <div class="header-right">
+    <nav>
+        <a href="philosophie.html" class="active">Notre philosophie</a>
+        <a href="nos-soins.html">Nos soins</a>
+        <a href="equipe.html">L'équipe</a>
+    </nav>
+    <a href="rendez-vous.html" class="btn-cta">Prendre RDV</a>
+    </div>
+</header>
+
+<!-- Chapitre 1 — Accroche -->
+<section class="chapter">
+    <div class="chapter-inner" style="text-align:center">
+        <p class="chapter-headline">Là où le souffle ralentit, où l'attention se dépose,<br>où le corps retrouve le chemin de sa propre sagesse.</p>
+        <p class="chapter-text">Un lieu d'ascension — entre tradition millénaire et précision moderne — pour retrouver équilibre, vitalité et clarté intérieure.</p>
+    </div>
+</section>
+
+<!-- Chapitre 2 — L'histoire -->
+<section class="chapter">
+    <div class="chapter-inner">
+        <p class="chapter-headline">Notre histoire</p>
+        <p class="chapter-text">Samma est née de la rencontre entre deux praticiennes de médecine chinoise, unies par un même chemin contemplatif et une même intention : créer un lieu où la santé est abordée avec plus de profondeur, plus de rigueur et plus d'humanité. Ce qui les a réunies n'est pas seulement un métier commun, mais une compréhension partagée — que la guérison n'est jamais purement physique, jamais purement mentale, jamais purement technique. Elle demande de la précision, mais aussi de la présence. Du savoir, mais aussi une écoute attentive.</p>
+        <p class="chapter-text">De cette vision est né un lieu qui prend le meilleur de la tradition et de la modernité pour offrir un accompagnement holistique et personnalisé. Chaque protocole, chaque geste, chaque espace est pensé pour remettre l'humain au centre — compris dans sa complexité, suivi dans la durée, entouré dans toutes ses dimensions. Corps, esprit, énergie, besoin de beauté, de lien, d'appartenance. Pas seulement soigné, mais accueilli dans sa totalité.</p>
+    </div>
+</section>
+
+<!-- Nuage de mots contemplatif -->
+<section class="chapter" style="min-height:auto; padding:40px;">
+    <div class="word-cloud">
+        <span style="font-size:28px; top:15%; left:10%; animation-delay:0s;">tradition</span>
+        <span style="font-size:22px; top:55%; left:18%; animation-delay:1.2s;">équilibre</span>
+        <span style="font-size:32px; top:30%; left:55%; animation-delay:2.5s;">lumière</span>
+        <span style="font-size:20px; top:70%; left:65%; animation-delay:0.8s;">résonance</span>
+        <span style="font-size:26px; top:10%; left:75%; animation-delay:3.8s;">souffle</span>
+        <span style="font-size:18px; top:80%; left:40%; animation-delay:5s;">méridiens</span>
+        <span style="font-size:30px; top:45%; left:30%; animation-delay:1.8s;">convergence</span>
+        <span style="font-size:20px; top:20%; left:40%; animation-delay:4.2s;">régénération</span>
+        <span style="font-size:24px; top:60%; left:80%; animation-delay:3s;">sagesse</span>
+        <span style="font-size:19px; top:35%; left:5%; animation-delay:5.5s;">harmonie</span>
+        <span style="font-size:23px; top:75%; left:8%; animation-delay:6.2s;">science</span>
+        <span style="font-size:27px; top:5%; left:50%; animation-delay:4.8s;">énergie</span>
+        <span style="font-size:17px; top:50%; left:48%; animation-delay:7s;">présence</span>
+        <span style="font-size:21px; top:85%; left:55%; animation-delay:2s;">transmission</span>
+        <span style="font-size:25px; top:40%; left:70%; animation-delay:6.5s;">soin</span>
+    </div>
+</section>
+
+<!-- Chapitre 3 — La tension / convergence -->
+<section class="chapter">
+    <div class="chapter-inner">
+        <p class="chapter-headline">Deux sagesses, une seule direction</p>
+        <div class="convergence">
+            <div class="convergence-pillar">
+                <h3>Tradition</h3>
+                <p>Trois millénaires de médecine traditionnelle chinoise. L'observation patiente du vivant. Les méridiens, le souffle, l'équilibre énergétique. Une sagesse transmise de maître à élève, de génération en génération.</p>
+            </div>
+            <div class="convergence-bridge"></div>
+            <div class="convergence-pillar">
+                <h3>Science</h3>
+                <p>Les technologies les plus avancées de régénération cellulaire. L'oxygénothérapie hyperbare, la photobiomodulation, les champs électromagnétiques pulsés. Ce que la recherche contemporaine confirme aujourd'hui.</p>
+            </div>
+        </div>
+        <div class="convergence-center">
+            <p>Là où d'autres voient une opposition, nous voyons une alliance naturelle.<br>Le corps ne fait pas la distinction entre ancien et moderne — il répond à ce qui fonctionne.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Chapitre 4 — Les fondatrices -->
+<section class="chapter">
+    <div class="chapter-inner">
+        <p class="chapter-headline">Les fondatrices</p>
+
+        <div class="founders-layout">
+            <div class="founder-side founder-side-left">
+                <p class="founder-name">Oana</p>
+                <p class="founder-role">Médecine chinoise classique</p>
+                <div class="founder-story">
+                    <p>Il y a des parcours qui ne se résument pas. Celui d'Oana traverse l'Asie, ses monastères, ses cliniques, ses lignées de transmission — un chemin long, patient, où la médecine et la contemplation ne se sont jamais séparées.</p>
+                    <p>Praticienne de médecine chinoise classique, elle porte une rigueur héritée de maîtres rares et une profondeur intérieure nourrie par plus d'une décennie de méditation dans la tradition de la forêt. Sa médecine est précise. Son écoute, sans hâte. Elle ne soigne pas seulement — elle accueille.</p>
+                </div>
+            </div>
+
+            <div class="founders-portrait">[Photo Oana & Joëlle]</div>
+
+            <div class="founder-side">
+                <p class="founder-name">Joëlle</p>
+                <p class="founder-role">Médecine chinoise & acupuncture</p>
+                <div class="founder-story">
+                    <p>Pour Joëlle, tout a commencé par une intuition : que le corps parle, et qu'il suffit d'apprendre à l'entendre. Cette intuition l'a conduite vers la médecine chinoise, puis vers l'Inde, où l'étude du Dharma est devenue non pas une discipline, mais une manière d'habiter le monde.</p>
+                    <p>Praticienne en acupuncture, elle accompagne celles et ceux qui traversent le stress, la fatigue profonde, les douleurs qui s'installent ou le désir d'enfant. Attentive au corps autant qu'à la vie intérieure, elle soigne comme elle écoute — avec une présence entière.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Chapitre 5 — L'espace -->
+<section class="chapter">
+    <div class="chapter-inner">
+        <p class="chapter-headline">L'espace</p>
+
+        <div class="space-gallery">
+            <div class="space-img">[Photo principale — vue d'ensemble]</div>
+            <div class="space-img">[Salle de soin]</div>
+            <div class="space-img">[Espace méditation]</div>
+        </div>
+
+        <div class="chapter-text" style="margin-top:24px;">
+            <p>La beauté, le calme et l'harmonie sensorielle ne sont pas secondaires à la guérison — ils en font partie. Les espaces que nous habitons influencent la façon dont nous respirons, dont le système nerveux répond, dont le corps commence à se relâcher et à se restaurer. Chez Samma, chaque matière, chaque lumière, chaque volume a été pensé pour accueillir, apaiser, inspirer.</p>
+            <p>Samma est plus qu'un lieu de soins. C'est un espace d'échange culturel et communautaire, où les membres se retrouvent, partagent et grandissent ensemble. Accompagner vers la guérison — et au-delà, vers l'épanouissement.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CTA final — sobre, pas de citation -->
+<section class="chapter chapter-cta">
+    <div>
+        <a href="nos-soins.html" class="btn-cta">Découvrir nos soins</a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div><strong>SAMMA</strong><p>Un souffle, un lieu, une attention.</p></div>
+        <div><h4>Navigation</h4><a href="philosophie.html">Notre philosophie</a><br><a href="nos-soins.html">Nos soins</a><br><a href="equipe.html">L'équipe</a><br><a href="blog.html">Blog</a></div>
+        <div><h4>Coordonnées</h4><p>12 Rue du Rhône, 1204 Genève</p><p>+41 22 XXX XX XX</p><p>contact@centre.ch</p></div>
+        <div><h4>Horaires</h4><p>Lun-Ven 8h-20h</p><p>Sam 9h-17h</p></div>
+    </div>
+    <div><a href="mentions-legales.html">Mentions légales</a> | <a href="cgv.html">CGV</a> | <a href="confidentialite.html">Confidentialité</a></div>
+</footer>
+
+</body>
+</html>
