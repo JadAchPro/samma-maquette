@@ -181,12 +181,10 @@ section {
 }
 
 #simplybook-widget iframe {
-    width: 166.67% !important;
-    height: 166.67% !important;
+    width: 100% !important;
+    height: 800px !important;
     border: 0;
     border-radius: 8px;
-    transform: scale(0.6);
-    transform-origin: top left;
 }
 
 .grid-3 {
